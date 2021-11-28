@@ -1,0 +1,46 @@
+{
+	"format_version": "1.17.40",
+	"minecraft:item": {
+		"description": {
+			"identifier": "ihg:custom_lantern_item"
+		},
+		"components": {
+			"minecraft:on_use_on": {
+				"on_use_on": {
+					"event": "place",
+					"condition": "query.block_face<2"
+				}
+			},
+			"minecraft:icon": {
+				"texture": "custom_lantern"
+			},
+			"minecraft:creative_category": {
+				"category": "items"
+			}
+		},
+		"events": {
+			"place": {
+				"sequence": [
+					{
+						"condition": "query.block_face==0",
+						"run_command": {
+							"command": [
+								"setblock ~ ~-1 ~ ihg:custom_hanging_lantern",
+								"playsound block.lantern.place @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"condition": "query.block_face==1",
+						"run_command": {
+							"command": [
+								"setblock ~ ~1 ~ ihg:custom_lantern",
+								"playsound block.lantern.place @a ~ ~ ~"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}
