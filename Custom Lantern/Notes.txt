@@ -1,1 +1,1 @@
-Notes
+Custom lantern that includes item to place it. Considered using global values to only need one block but is currently broken in BETA. Lantern does not break itself when the supporting block is broken currently. Not a perfect replication and can be improved. 
