@@ -28,7 +28,8 @@
 								"setblock ~ ~-1 ~ ihg:custom_hanging_lantern",
 								"playsound block.lantern.place @a ~ ~ ~"
 							]
-						}
+						},
+						"decrement_stack": {}
 					},
 					{
 						"condition": "query.block_face==1",
@@ -37,7 +38,8 @@
 								"setblock ~ ~1 ~ ihg:custom_lantern",
 								"playsound block.lantern.place @a ~ ~ ~"
 							]
-						}
+						},
+						"decrement_stack": {}
 					}
 				]
 			}
