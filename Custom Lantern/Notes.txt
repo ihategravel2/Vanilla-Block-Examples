@@ -6,6 +6,8 @@ General Notes:
 Problems:
 1. Uses two blocks
 2. Does not need a supporting block.
+3. Does not waterlog.
+4. When placed on a non-solid block such as tall grass the lantern is placed above it.
 Potential Solutions:
 1. Potentially use global values if they work.
 2. N/A 
