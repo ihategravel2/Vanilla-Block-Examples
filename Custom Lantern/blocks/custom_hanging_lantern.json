@@ -67,7 +67,36 @@
 			"minecraft:loot": "loot_tables/custom_lantern.json",
 			"minecraft:destroy_time": 1,
 			"minecraft:explosion_resistance": 3.5,
-			"tag:custom_lantern": {}
+			"tag:custom_lantern": {},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='water_bucket'||query.get_equipped_item_name('main_hand')=='bucket'",
+				"event": "water_log"
+			}
+		},
+		"events": {
+			"water_log": {
+				"sequence": [
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='water_bucket'",
+						"run_command": {
+							"command": [
+								"structure load lantern_hanging ~ ~ ~"
+							]
+						}
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='bucket'",
+						"set_block": {
+							"block_type": "ihg:custom_hanging_lantern"
+						},
+						"run_command": {
+							"command": [
+								"setblock ~ ~ ~ air"
+							]
+						}
+					}
+				]
+			}
 		}
 	}
 }
