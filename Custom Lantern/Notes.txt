@@ -1,7 +1,7 @@
 General Notes:
 1. Utilizes two blocks to achieve the hanging and regular block state found in vanilla when placed with the item. Considered using global values but need to see if they are broken/fixed in the latest beta.
 2. Block is placed by and item exactly like vanilla that only allows for "UP" & "DOWN" sides of the block it's placed on.
-3. Item is conditioned to only place a lantern on a block once to prevent uncessary wasting of lanterns in survival mode. Achieved using "q.block_neighbor_has_any_tag" queries in the main condition to test for the block tag "custom_lantern" in it's relative location.
+3. Item is conditioned to only place a lantern on a block side once to prevent uncessary wasting of lanterns in survival mode. Achieved using "q.block_neighbor_has_any_tag" queries in the main condition to test for the block tag "custom_lantern" in it's relative location.
 4. Does not replicate supporting block behaviors. 
 Problems:
 1. Uses two blocks
@@ -9,3 +9,6 @@ Problems:
 Potential Solutions:
 1. Potentially use global values if they work.
 2. N/A 
+
+TO-DO:
+1. Hitbox/Collision for hanging lantern needs slight adjustment.
