@@ -1,0 +1,31 @@
+{
+	"pools": [
+		{
+			"entries": [
+				{
+					"type": "item",
+					"name": "ihg:custom_seeds",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 1,
+								"max": 2
+							}
+						}
+					]
+				}
+			],
+			"rolls": 1
+		},
+		{
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:wheat"
+				}
+			],
+			"rolls": 1
+		}
+	]
+}

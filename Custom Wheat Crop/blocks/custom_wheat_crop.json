@@ -1,0 +1,222 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "ihg:custom_wheat_crop",
+			"properties": {
+				"ihg:stage": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7
+				]
+			}
+		},
+		"components": {
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "age",
+					"condition": "query.block_property('ihg:stage')<7"
+				}
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:geometry": "geometry.crop",
+			"minecraft:on_interact": {
+				"event": "set",
+				"condition": "query.get_equipped_item_name('main_hand')=='bone_meal'&&query.block_property('ihg:stage')<7"
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							"minecraft:farmland"
+						],
+						"allowed_faces": [
+							"up"
+						]
+					},
+					{
+						"block_filter": [
+							{
+								"tags": "query.any_tag('air')"
+							}
+						]
+					}
+				]
+			},
+			"minecraft:entity_collision": false,
+			"minecraft:loot": "loot_tables/seeds.json"
+		},
+		"events": {
+			"age": {
+				"set_block_property": {
+					"ihg:stage": "query.block_property('ihg:stage')+1"
+				}
+			},
+			"set": {
+				"set_block_property": {
+					"ihg:stage": 7
+				},
+				"decrement_stack": {},
+				"run_command": {
+					"command": [
+						"particle minecraft:crop_growth_emitter"
+					]
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('ihg:stage') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_0",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:pick_collision": {
+						"size": [
+							16,
+							2.3,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_1",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:pick_collision": {
+						"size": [
+							16,
+							4.6,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_2",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:pick_collision": {
+						"size": [
+							16,
+							6.8,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_3",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:pick_collision": {
+						"size": [
+							16,
+							9.1,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_4",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:pick_collision": {
+						"size": [
+							16,
+							11.5,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 5",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_5",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:pick_collision": {
+						"size": [
+							16,
+							13.7,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 6",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_6",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:stage') == 7",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "wheat_7",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:loot": "loot_tables/wheat_crop.json"
+				}
+			}
+		]
+	}
+}
