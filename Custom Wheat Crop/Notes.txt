@@ -4,6 +4,8 @@ General Info:
 3. Loot tables match that of the vanilla with a diffirence in the seeds from fully grown crop ratio.
 4. For the item to play the correct sound upon placing the block sound needs to be defined within blocks.json.
 5. Vanilla wheat crop textures are in a array in the vanilla terrain_texture so they need to be manually defined yourself.
+6. Block is using a placement filter to only work on the "UP" face of farmland. This acts as a replication of the block support mechanic and will break the block if the farmland has became dry.
+7. Uses random_ticking so will be effect by a set tick speed. 
 Problems:
 1. Crop drops block instead of item when silk touch is used.
 2. Fortune does not apply.
