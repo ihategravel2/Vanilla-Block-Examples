@@ -1,0 +1,6 @@
+Problems:
+1. Crop drops block instead of item when silk touch is used.
+2. Fortune does not apply.
+Potential Solutions:
+1. define all tools for silk touch and fortune in the loot tables. Silk touch to drop the same thing but the fortune to increase the drop rate proportinal to the vanilla rate.
+//Note: Tried this in the loot table with the 'match_tool' but wasn't working. Might be doing something wrong.
