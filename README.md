@@ -3,9 +3,11 @@ Vanilla Blocks reicated as MCBE Custom Blocks
 Blocks can be work in progress, some blocks can not be fully replicated due to addon limitations.
 
 See included notes for each block.
+
 #Completed Blocks
 1. Custom lantern
 2. Custom Wheat Crop
+
 #Future Blocks
 1. Candles
 2. Carpet
