@@ -1,6 +1,15 @@
+General Info:
+1. Matches the 8 stages of vanilla wheat crop growth.
+2. Collision/Hitbox is very close to that of vanilla.
+3. Loot tables match that of the vanilla with a diffirence in the seeds from fully grown crop ratio.
+4. For the item to play the correct sound upon placing the block sound needs to be defined within blocks.json.
+5. Vanilla wheat crop textures are in a array in the vanilla terrain_texture so they need to be manually defined yourself.
 Problems:
 1. Crop drops block instead of item when silk touch is used.
 2. Fortune does not apply.
+3. Full Grown loot table needs to be properly matched with the vanilla (See 'https://minecraft.fandom.com/wiki/Wheat_Seeds' for refrence)
 Potential Solutions:
+
 1. define all tools for silk touch and fortune in the loot tables. Silk touch to drop the same thing but the fortune to increase the drop rate proportinal to the vanilla rate.
 //Note: Tried this in the loot table with the 'match_tool' but wasn't working. Might be doing something wrong.
+2. Define full grown loot tables in percentaged weights to match that of vanilla wheat crop. (See link above for refrence)
