@@ -1,0 +1,14 @@
+{
+	"resource_pack_name": "Vanilla Blocks Replication Pack",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"custom_lantern": {
+			"textures": [
+				"textures/items/custom_lantern"
+			]
+		},
+		"custom_candle": {
+			"textures": "textures/items/candles/black_candle"
+		}
+	}
+}

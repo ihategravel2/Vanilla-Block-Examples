@@ -1,0 +1,532 @@
+{
+	"format_version": "1.17.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "ihg:custom_candle",
+			"properties": {
+				"ihg:state": [
+					1,
+					2,
+					3,
+					4
+				],
+				"ihg:lit": [
+					false,
+					true
+				],
+				"ihg:waterlogged": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.template_candle",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "black_candle"
+				}
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:pick_collision": {
+				"size": [
+					9.8,
+					5.9,
+					9.8
+				],
+				"origin": [
+					-5,
+					0,
+					-5
+				]
+			},
+			"minecraft:entity_collision": {
+				"size": [
+					9.8,
+					5.9,
+					9.8
+				],
+				"origin": [
+					-5,
+					0,
+					-5
+				]
+			},
+			"tag:custom_candle": {},
+			"minecraft:on_interact": {
+				"event": "state",
+				"condition": "!query.is_item_equipped||query.get_equipped_item_name('main_hand')=='fire_charge'||query.get_equipped_item_name('main_hand')=='flint_and_steel'||query.get_equipped_item_name('main_hand')=='candle_item'||query.get_equipped_item_name('main_hand')=='water_bucket'"
+			},
+			"minecraft:loot": "loot_tables/custom_candle_1.json"
+		},
+		"events": {
+			"state": {
+				"sequence": [
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='candle_item'&&query.block_property('ihg:state')<4",
+						"sequence": [
+							{
+								"set_block_property": {
+									"ihg:state": "query.block_property('ihg:state') +1"
+								},
+								"run_command": {
+									"command": [
+										"playsound use.candle @a ~ ~ ~"
+									]
+								},
+								"condition": "!query.block_property('ihg:lit')",
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:lit')&&query.block_property('ihg:state')==1",
+								"set_block_property": {
+									"ihg:state": "query.block_property('ihg:state') +1"
+								},
+								"run_command": {
+									"command": [
+										"playsound use.candle @a ~ ~ ~",
+										"particle minecraft:candle_flame_particle ~0.13 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.10 ~"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:lit')&&query.block_property('ihg:state')==2",
+								"set_block_property": {
+									"ihg:state": "query.block_property('ihg:state') +1"
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~",
+										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:lit')&&query.block_property('ihg:state')==3",
+								"set_block_property": {
+									"ihg:state": "query.block_property('ihg:state') +1"
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~",
+										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115",
+										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115"
+									]
+								},
+								"decrement_stack": {}
+							}
+						]
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='flint_and_steel'&&!query.block_property('ihg:lit')",
+						"sequence": [
+							{
+								"condition": "query.block_property('ihg:state')==1",
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~ ~ ~",
+										"playsound fire.ignite @a ~ ~ ~"
+									]
+								},
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"damage": {
+									"type": "duraility",
+									"amount": 1,
+									"target": "item"
+								}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==2",
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.13 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.10 ~",
+										"playsound fire.ignite @a ~ ~ ~"
+									]
+								},
+								"damage": {
+									"type": "duraility",
+									"amount": 1,
+									"target": "item"
+								}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==3",
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~",
+										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115",
+										"playsound fire.ignite @a ~ ~ ~"
+									]
+								},
+								"damage": {
+									"type": "duraility",
+									"amount": 1,
+									"target": "item"
+								}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==4",
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.12",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~-0.12",
+										"particle minecraft:candle_flame_particle ~-0.07 ~-0.20 ~0.070",
+										"particle minecraft:candle_flame_particle ~0.13 ~-0.10 ~0.070",
+										"playsound fire.ignite @a ~ ~ ~"
+									]
+								},
+								"damage": {
+									"type": "duraility",
+									"amount": 1,
+									"target": "item"
+								}
+							}
+						]
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='fire_charge'&&!query.block_property('ihg:lit')",
+						"sequence": [
+							{
+								"condition": "query.block_property('ihg:state')==1",
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~ ~ ~",
+										"playsound fire.ignite @a ~ ~ ~",
+										"playsound mob.ghast.fireball @a ~ ~ ~ 0.5"
+									]
+								},
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==2",
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.13 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.10 ~",
+										"playsound fire.ignite @a ~ ~ ~",
+										"playsound mob.ghast.fireball @a ~ ~ ~ 0.5"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==3",
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.05",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~",
+										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115",
+										"playsound fire.ignite @a ~ ~ ~",
+										"playsound mob.ghast.fireball @a ~ ~ ~ 0.5"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==4",
+								"set_block_property": {
+									"ihg:lit": true
+								},
+								"run_command": {
+									"command": [
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.12",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~-0.12",
+										"particle minecraft:candle_flame_particle ~-0.07 ~-0.20 ~0.070",
+										"particle minecraft:candle_flame_particle ~0.13 ~-0.10 ~0.070",
+										"playsound fire.ignite @a ~ ~ ~",
+										"playsound mob.ghast.fireball @a ~ ~ ~ 0.5"
+									]
+								},
+								"decrement_stack": {}
+							}
+						]
+					},
+					{
+						"condition": "!query.is_item_equipped&&query.block_property('ihg:lit')",
+						"sequence": [
+							{
+								"condition": "query.block_property('ihg:state')==1",
+								"run_command": {
+									"command": [
+										"playsound extinguish.candle @a ~ ~ ~",
+										"particle minecraft:basic_smoke_particle ~ ~ ~"
+									]
+								},
+								"set_block_property": {
+									"ihg:lit": false
+								}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==2",
+								"run_command": {
+									"command": [
+										"playsound extinguish.candle @a ~ ~ ~",
+										"particle minecraft:basic_smoke_particle ~0.13 ~ ~-0.05",
+										"particle minecraft:basic_smoke_particle ~-0.13 ~-0.10 ~"
+									]
+								},
+								"set_block_property": {
+									"ihg:lit": false
+								}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==3",
+								"run_command": {
+									"command": [
+										"playsound extinguish.candle @a ~ ~ ~",
+										"particle minecraft:basic_smoke_particle ~0.06 ~ ~-0.05",
+										"particle minecraft:basic_smoke_particle ~-0.13 ~-0.05 ~",
+										"particle minecraft:basic_smoke_particle ~ ~-0.20 ~0.115"
+									]
+								},
+								"set_block_property": {
+									"ihg:lit": false
+								}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==4",
+								"run_command": {
+									"command": [
+										"playsound extinguish.candle @a ~ ~ ~",
+										"particle minecraft:basic_smoke_particle ~0.06 ~ ~-0.12",
+										"particle minecraft:basic_smoke_particle ~-0.13 ~-0.05 ~-0.12",
+										"particle minecraft:basic_smoke_particle ~-0.07 ~-0.20 ~0.070",
+										"particle minecraft:basic_smoke_particle ~0.13 ~-0.10 ~0.070"
+									]
+								},
+								"set_block_property": {
+									"ihg:lit": false
+								}
+							}
+						]
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='water_bucket'",
+						"sequence": [
+							{
+								"condition": "query.block_property('ihg:state')==1",
+								"run_command": {
+									"command": [
+										"structure load candle_1 ~ ~ ~",
+										"playsound bucket.empty_water @a ~ ~ ~",
+										"give @p bucket"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==2",
+								"run_command": {
+									"command": [
+										"structure load candle_2 ~ ~ ~",
+										"playsound bucket.empty_water @a ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==3",
+								"run_command": {
+									"command": [
+										"structure load candle_3 ~ ~ ~",
+										"playsound bucket.empty_water @a ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==4",
+								"run_command": {
+									"command": [
+										"structure load candle_4 ~ ~ ~",
+										"playsound bucket.empty_water @a ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							}
+						]
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='bucket'",
+						"sequence": [
+							{
+								"condition": "query.block_property('ihg:state')==1",
+								"run_command": {
+									"command": [
+										"structure load candle_empty_1 ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==2",
+								"run_command": {
+									"command": [
+										"structure load candle_empty_2 ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==3",
+								"run_command": {
+									"command": [
+										"structure load candle_empty_3 ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							},
+							{
+								"condition": "query.block_property('ihg:state')==4",
+								"run_command": {
+									"command": [
+										"structure load candle_empty_4 ~ ~ ~",
+										"give @p water_bucket"
+									]
+								},
+								"decrement_stack": {}
+							}
+						]
+					}
+				]
+			},
+			"tick": {
+				"sequence": [
+					{
+						"condition": "query.block_property('ihg:state')==1",
+						"run_command": {
+							"command": [
+								"particle minecraft:candle_flame_particle ~ ~ ~"
+							]
+						}
+					},
+					{
+						"condition": "query.block_property('ihg:state')==2",
+						"run_command": {
+							"command": [
+								"particle minecraft:candle_flame_particle ~0.13 ~ ~-0.05",
+								"particle minecraft:candle_flame_particle ~-0.13 ~-0.10 ~"
+							]
+						}
+					},
+					{
+						"condition": "query.block_property('ihg:state')==3",
+						"run_command": {
+							"command": [
+								"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.05",
+								"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~",
+								"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115"
+							]
+						}
+					},
+					{
+						"condition": "query.block_property('ihg:state')==4",
+						"run_command": {
+							"command": [
+								"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.12",
+								"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~-0.12",
+								"particle minecraft:candle_flame_particle ~-0.07 ~-0.20 ~0.070",
+								"particle minecraft:candle_flame_particle ~0.13 ~-0.10 ~0.070"
+							]
+						}
+					}
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('ihg:state') == 2",
+				"components": {
+					"minecraft:geometry": "geometry.template_two_candles",
+					"minecraft:loot": "loot_tables/custom_candle_2.json"
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:state') == 3",
+				"components": {
+					"minecraft:geometry": "geometry.template_three_candles",
+					"minecraft:loot": "loot_tables/custom_candle_3.json"
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:state') == 4",
+				"components": {
+					"minecraft:geometry": "geometry.template_four_candles",
+					"minecraft:loot": "loot_tables/custom_candle_4.json"
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:lit')",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							2,
+							5
+						],
+						"on_tick": {
+							"event": "tick"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:state') == 1 && query.block_property('ihg:lit')",
+				"components": {
+					"minecraft:block_light_emission": 0.25
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:state') == 2 && query.block_property('ihg:lit')",
+				"components": {
+					"minecraft:block_light_emission": 0.5
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:state') == 3 && query.block_property('ihg:lit')",
+				"components": {
+					"minecraft:block_light_emission": 0.75
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:state') == 4 && query.block_property('ihg:lit')",
+				"components": {
+					"minecraft:block_light_emission": 1
+				}
+			}
+		]
+	}
+}
