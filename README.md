@@ -4,11 +4,14 @@ Blocks can be work in progress, some blocks can not be fully replicated due to a
 
 See included notes for each block.
 
-#Completed Blocks
+# Future Plans
+Bridge v2 extension with the block presets.
+
+# Completed Blocks
 1. Custom lantern
 2. Custom Wheat Crop
 
-#Future Blocks
+# Future Blocks
 1. Candles
 2. Carpet
 3.Glass Panes
