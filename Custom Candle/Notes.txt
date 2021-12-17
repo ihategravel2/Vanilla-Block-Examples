@@ -7,6 +7,7 @@ Problems:
 1. Particles don't perfectly match the vanilla candles. Timing is a bit off and the offset isn't perfect.
 2. Can be interacted with no matter what even if no conditions are met.
 3. Buckets are going to @p instead of @s. Had to use @p because structures were being loaded at the players position.
+4. Particles are not on same range as vanilla candles (but close).
 Potential Solutions:
 Not going to fix the particles. :)
 Use sequences to have the give command for buckets in a seperate run_command.
@@ -17,3 +18,7 @@ Nothing
 
 
 - I don't have time to write detailed notes right now.
+
+
+Changes Log:
+- fixed giving water buckets instead of regular ones when water logging.
