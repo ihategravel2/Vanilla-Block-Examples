@@ -347,7 +347,7 @@
 									"command": [
 										"structure load candle_2 ~ ~ ~",
 										"playsound bucket.empty_water @a ~ ~ ~",
-										"give @p water_bucket"
+										"give @p bucket"
 									]
 								},
 								"decrement_stack": {}
@@ -358,7 +358,7 @@
 									"command": [
 										"structure load candle_3 ~ ~ ~",
 										"playsound bucket.empty_water @a ~ ~ ~",
-										"give @p water_bucket"
+										"give @p bucket"
 									]
 								},
 								"decrement_stack": {}
@@ -369,7 +369,7 @@
 									"command": [
 										"structure load candle_4 ~ ~ ~",
 										"playsound bucket.empty_water @a ~ ~ ~",
-										"give @p water_bucket"
+										"give @p bucket"
 									]
 								},
 								"decrement_stack": {}
