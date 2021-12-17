@@ -110,15 +110,15 @@
 								"set_block_property": {
 									"ihg:state": "query.block_property('ihg:state') +1"
 								},
+								"decrement_stack": {},
 								"run_command": {
 									"command": [
-										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.05",
-										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~",
-										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115",
-										"particle minecraft:candle_flame_particle ~ ~-0.20 ~0.115"
+										"particle minecraft:candle_flame_particle ~0.06 ~ ~-0.12",
+										"particle minecraft:candle_flame_particle ~-0.13 ~-0.05 ~-0.12",
+										"particle minecraft:candle_flame_particle ~-0.07 ~-0.20 ~0.070",
+										"particle minecraft:candle_flame_particle ~0.13 ~-0.10 ~0.070"
 									]
-								},
-								"decrement_stack": {}
+								}
 							}
 						]
 					},
@@ -499,6 +499,12 @@
 						],
 						"on_tick": {
 							"event": "tick"
+						}
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "black_candle_lit",
+							"render_method": "opaque"
 						}
 					}
 				}

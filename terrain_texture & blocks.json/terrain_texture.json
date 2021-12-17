@@ -53,6 +53,9 @@
 			"textures": [
 				"textures/blocks/wheat_stage_7"
 			]
+		},
+		"black_candle_lit": {
+			"textures": "textures/blocks/candles/black_candle_lit"
 		}
 	}
 }
