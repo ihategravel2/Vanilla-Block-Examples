@@ -13,7 +13,7 @@ Bridge v2 extension with the block presets.
 3. Custom Candles
 
 # Future Blocks
-1. Candles // Done
+1. Candles
 2. Carpet
 3.Glass Panes
 4. All Crop Types (Wheat is already done)
