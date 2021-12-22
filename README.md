@@ -7,7 +7,7 @@ See included notes for each block.
 # Future Plans
 Bridge v2 extension with the block presets.
 
-# Completed Blocks
+# Completed ir WIP Blocks
 1. Custom lantern
 2. Custom Wheat Crop
 3. Custom Candles
