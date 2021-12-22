@@ -1,0 +1,120 @@
+{
+	"format_version": "1.17.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "ihg:custom_lantern",
+			"properties": {
+				"ihg:state_up": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.template_lantern",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "lantern",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:block_light_emission": 1,
+			"minecraft:block_light_absorption": 0,
+			"minecraft:pick_collision": {
+				"size": [
+					6,
+					8,
+					6
+				],
+				"origin": [
+					-3,
+					0,
+					-3
+				]
+			},
+			"minecraft:entity_collision": {
+				"size": [
+					6,
+					9,
+					6
+				],
+				"origin": [
+					-3,
+					0,
+					-3
+				]
+			},
+			"minecraft:on_player_placing": {
+				"event": "test"
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							{
+								"tags": "!query.any_tag('air')"
+							}
+						],
+						"allowed_faces": [
+							"up",
+							"down"
+						]
+					}
+				]
+			},
+			"minecraft:loot": "loot_tables/custom_lantern.json",
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 3.5,
+			"tag:custom_lantern": {},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='water_bucket'||query.get_equipped_item_name('main_hand')=='bucket'",
+				"event": "water_log"
+			}
+		},
+		"events": {
+			"test": {
+				"sequence": [
+					{
+						"condition": "query.block_face==0",
+						"set_block_property": {
+							"ihg:state_up": true
+						}
+					}
+				]
+			},
+			"water_log": {
+				"sequence": [
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='water_bucket'",
+						"run_command": {
+							"command": [
+								"structure load regular_lantern ~ ~ ~"
+							]
+						}
+					},
+					{
+						"condition": "query.get_equipped_item_name('main_hand')=='bucket'",
+						"set_block": {
+							"block_type": "ihg:custom_lantern"
+						},
+						"run_command": {
+							"command": [
+								"setblock ~ ~ ~ air"
+							]
+						}
+					}
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('ihg:state_up')",
+				"components": {
+					"minecraft:geometry": "geometry.template_hanging_lantern"
+				}
+			}
+		]
+	}
+}

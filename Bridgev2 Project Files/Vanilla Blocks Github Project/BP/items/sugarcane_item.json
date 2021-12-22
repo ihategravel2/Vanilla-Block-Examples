@@ -1,0 +1,29 @@
+{
+	"format_version": "1.17.40",
+	"minecraft:item": {
+		"description": {
+			"identifier": "ihg:sugarcane_item"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "reeds"
+			},
+			"minecraft:on_use_on": {
+				"on_use_on": {
+					"condition": "query.block_face==1&&q.block_neighbor_has_any_tag(0,0,0,'sand','grass','dirt')&&((q.block_neighbor_has_any_tag(1,0,0,'water'))||(q.block_neighbor_has_any_tag(-1,0,0,'water'))||(q.block_neighbor_has_any_tag(0,0,1,'water'))||(q.block_neighbor_has_any_tag(0,0,-1,'water')))",
+					"event": "place"
+				}
+			}
+		},
+		"events": {
+			"place": {
+				"run_command": {
+					"command": [
+						"fill ~ ~1 ~ ~ ~1 ~ ihg:custom_sugar_cane 0 replace air",
+						"playsound dig.grass @a ~ ~ ~"
+					]
+				}
+			}
+		}
+	}
+}

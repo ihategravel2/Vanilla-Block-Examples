@@ -1,0 +1,140 @@
+{
+	"format_version": "1.17.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "ihg:custom_sugar_cane",
+			"properties": {
+				"ihg:growth": [
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"components": {
+			"tag:custom_sugarcane": {},
+			"minecraft:on_placed": {
+				"event": "state_check"
+			},
+			"minecraft:geometry": "geometry.tinted_cross",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "reeds",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:entity_collision": false,
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							"minecraft:grass",
+							"minecraft:dirt",
+							"minecraft:sand",
+							"minecraft:dirt_with_roots",
+							"ihg:custom_sugar_cane"
+						],
+						"allowed_faces": [
+							"up"
+						]
+					}
+				]
+			},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='bone_meal'",
+				"event": "bone_meal"
+			}
+		},
+		"events": {
+			"state_event": {
+				"set_block_property": {
+					"ihg:growth": "query.block_property('ihg:growth')+1"
+				},
+				"set_block_at_pos": {
+					"block_offset": [
+						0,
+						1,
+						0
+					],
+					"block_type": "ihg:custom_sugar_cane"
+				}
+			},
+			"state_check": {
+				"sequence": [
+					{
+						"condition": "q.block_neighbor_has_any_tag(0,-1,0,'custom_sugarcane_stage_1')",
+						"set_block_property": {
+							"ihg:growth": 2
+						}
+					},
+					{
+						"condition": "q.block_neighbor_has_any_tag(0,-1,0,'custom_sugarcane_stage_2')",
+						"set_block_property": {
+							"ihg:growth": 3
+						}
+					}
+				]
+			},
+			"bone_meal": {
+				"sequence": [
+					{
+						"condition": "q.block_neighbor_has_any_tag(0,-1,0,'custom_sugarcane')&&!q.block_neighbor_has_any_tag(0,1,0,'custom_sugarcane')&&query.block_property('ihg:growth')<3&&!q.block_neighbor_has_any_tag(0,-2,0,'custom_sugarcane')",
+						"run_command": {
+							"command": [
+								"particle minecraft:crop_growth_emitter"
+							]
+						},
+						"set_block_at_pos": {
+							"block_offset": [
+								0,
+								1,
+								0
+							],
+							"block_type": "ihg:custom_sugar_cane"
+						},
+						"decrement_stack": {}
+					},
+					{
+						"run_command": {
+							"command": [
+								"fill ~ ~1 ~ ~ ~2 ~ ihg:custom_sugar_cane",
+								"particle minecraft:crop_growth_emitter"
+							]
+						},
+						"decrement_stack": {},
+						"condition": "!q.block_neighbor_has_any_tag(0,-1,0,'custom_sugarcane')&&!q.block_neighbor_has_any_tag(0,1,0,'custom_sugarcane')&&!q.block_neighbor_has_any_tag(0,-2,0,'custom_sugarcane')"
+					}
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('ihg:growth') == 1",
+				"components": {
+					"tag:custom_sugarcane_stage_1": {}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:growth') == 2",
+				"components": {
+					"tag:custom_sugarcane_stage_2": {}
+				}
+			},
+			{
+				"condition": "query.block_property('ihg:growth') == 3",
+				"tag:custom_sugarcane_stage_3": {}
+			},
+			{
+				"condition": "query.block_property('ihg:growth') < 3",
+				"components": {
+					"minecraft:random_ticking": {
+						"on_tick": {
+							"event": "state_event"
+						}
+					}
+				}
+			}
+		]
+	}
+}

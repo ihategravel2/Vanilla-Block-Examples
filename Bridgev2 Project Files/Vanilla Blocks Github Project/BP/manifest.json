@@ -1,0 +1,49 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"ihategravel"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.1.5"
+			]
+		}
+	},
+	"header": {
+		"name": "Vanilla Blocks Github Project",
+		"description": "Made by ihategravel",
+		"min_engine_version": [
+			1,
+			17,
+			0
+		],
+		"uuid": "069aebda-87f4-4616-9c74-66a2c2fe5b9f",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "0de8ce8e-b97c-4c6c-8878-99744190b8c7",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "484f2e5b-430e-426d-888d-1aeb985c87f5",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}

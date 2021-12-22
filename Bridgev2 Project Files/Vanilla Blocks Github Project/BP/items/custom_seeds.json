@@ -1,0 +1,17 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "ihg:custom_seeds"
+		},
+		"components": {
+			"minecraft:seed": {
+				"crop_result": "custom_wheat_crop",
+				"plant_at": [
+					"farmland"
+				],
+				"plant_at_face": "UP"
+			}
+		}
+	}
+}

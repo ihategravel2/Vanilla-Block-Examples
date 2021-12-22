@@ -1,0 +1,25 @@
+{
+	"format_version": [
+		1,
+		1,
+		0
+	],
+	"ihg:custom_lantern": {
+		"sound": "lantern"
+	},
+	"ihg:custom_chain": {
+		"sound": "chain"
+	},
+	"ihg:custom_hanging_lantern": {
+		"sound": "lantern"
+	},
+	"ihg:custom_wheat_crop": {
+		"sound": "grass"
+	},
+	"ihg:custom_candle": {
+		"sound": "candle"
+	},
+	"ihg:custom_sugar_cane": {
+		"sound": "grass"
+	}
+}

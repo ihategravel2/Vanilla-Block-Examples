@@ -1,0 +1,41 @@
+{
+	"type": "minecraftBedrock",
+	"name": "Vanilla Blocks Github Project",
+	"namespace": "ihg",
+	"authors": [
+		"ihategravel"
+	],
+	"targetVersion": "1.17.40",
+	"description": "Made by ihategravel",
+	"experimentalGameplay": {
+		"cavesAndCliffs": false,
+		"holidayCreatorFeatures": true,
+		"creationOfCustomBiomes": true,
+		"additionalModdingCapabilities": false,
+		"upcomingCreatorFeatures": true,
+		"enableGameTestFramework": false,
+		"experimentalMolangFeatures": true,
+		"educationEdition": false
+	},
+	"packs": {
+		"behaviorPack": "./BP",
+		"resourcePack": "./RP"
+	},
+	"compiler": {
+		"plugins": [
+			"typeScript",
+			"entityIdentifierAlias",
+			"customEntityComponents",
+			"customItemComponents",
+			"customBlockComponents",
+			"customCommands",
+			"moLang",
+			[
+				"simpleRewrite",
+				{
+					"packName": "Vanilla Blocks Github Project"
+				}
+			]
+		]
+	}
+}

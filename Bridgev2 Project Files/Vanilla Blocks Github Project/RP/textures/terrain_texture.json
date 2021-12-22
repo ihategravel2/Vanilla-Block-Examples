@@ -1,0 +1,51 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Vanilla Blocks Replication Pack",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"wheat_0": {
+			"textures": [
+				"textures/blocks/wheat_stage_0"
+			]
+		},
+		"wheat_1": {
+			"textures": [
+				"textures/blocks/wheat_stage_1"
+			]
+		},
+		"wheat_2": {
+			"textures": [
+				"textures/blocks/wheat_stage_2"
+			]
+		},
+		"wheat_3": {
+			"textures": [
+				"textures/blocks/wheat_stage_3"
+			]
+		},
+		"wheat_4": {
+			"textures": [
+				"textures/blocks/wheat_stage_4"
+			]
+		},
+		"wheat_5": {
+			"textures": [
+				"textures/blocks/wheat_stage_5"
+			]
+		},
+		"wheat_6": {
+			"textures": [
+				"textures/blocks/wheat_stage_6"
+			]
+		},
+		"wheat_7": {
+			"textures": [
+				"textures/blocks/wheat_stage_7"
+			]
+		},
+		"black_candle_lit": {
+			"textures": "textures/blocks/candles/black_candle_lit"
+		}
+	}
+}
