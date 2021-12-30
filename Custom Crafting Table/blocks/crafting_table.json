@@ -5,13 +5,39 @@
             "identifier": "ihg:crafting_table"
         },
         "components": {
-            "minecraft:block_light_emission": 0.75,
             "minecraft:crafting_table": {
                 "custom_description": "Example Crafting Table", 
                 "grid_size": 3,
-                "crafting_tags": ["crafting_table", "old_workbench"]
+                "crafting_tags": ["crafting_table"]
             },
-            "minecraft:destroy_time": 2.5
+            "minecraft:destroy_time": 2.5,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "crafting_table_top",
+                    "render_method": "alpha_test"
+                },
+                "down": {
+                    "texture": "crafting_table_bottom",
+                    "render_method": "alpha_test"
+                },
+                "north": {
+                    "texture": "crafting_table_front",
+                    "render_method": "alpha_test"
+                },
+                "south": {
+                    "texture": "crafting_table_front",
+                    "render_method": "alpha_test"
+                },
+                "east": {
+                    "texture": "crafting_table_side",
+                    "render_method": "alpha_test"
+                },
+                "west": {
+                    "texture": "crafting_table_side",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:unit_cube": {}
         }
     }
 }
