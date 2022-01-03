@@ -1,5 +1,5 @@
 # Vanilla-Block-Examples
-EXPECT ALL BLOCKS TO WORK-IN-PROGRESS. See notes for listed devolpment status!
+EXPECT ALL BLOCKS TO BE WORK-IN-PROGRESS. See notes for listed devolpment status!
 Vanilla Blocks reicated as MCBE Custom Blocks
 Blocks can be work in progress, some blocks can not be fully replicated due to addon limitations.
 
