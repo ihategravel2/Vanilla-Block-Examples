@@ -9,6 +9,7 @@ Problems:
 3. Buckets are going to @p instead of @s. Had to use @p because structures were being loaded at the players position.
 4. Particles are not on same range as vanilla candles (but close).
 5. Candles can be lit even when waterlogged.
+6. BIG PROBLEM. Blocks become unsable after un-waterlogging it.  (Currently working on this, some issue with structures.)
 Potential Solutions:
 Not going to fix the particles. :)
 Use sequences to have the give command for buckets in a seperate run_command.
