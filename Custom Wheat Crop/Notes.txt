@@ -10,7 +10,9 @@ Problems:
 1. Crop drops block instead of item when silk touch is used.
 2. Fortune does not apply.
 3. Full Grown loot table needs to be properly matched with the vanilla (See 'https://minecraft.fandom.com/wiki/Wheat_Seeds' for refrence)
+4. Model is broken due to it going 1 pixel below to match vanilla crops. The model cap size was recently changed to 1 block so matching the vanilla model is currently impossible atm. 
 Potential Solutions:
+
 
 1. define all tools for silk touch and fortune in the loot tables. Silk touch to drop the same thing but the fortune to increase the drop rate proportinal to the vanilla rate.
 //Note: Tried this in the loot table with the 'match_tool' but wasn't working. Might be doing something wrong.
