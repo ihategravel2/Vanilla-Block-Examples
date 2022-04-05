@@ -1,3 +1,5 @@
+Note: Project on hold for now. :)
+
 # Vanilla-Block-Examples
 EXPECT ALL BLOCKS TO BE WORK-IN-PROGRESS. See notes for listed devolpment status!
 Vanilla Blocks reicated as MCBE Custom Blocks
