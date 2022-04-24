@@ -6,7 +6,11 @@ General Stuff:
 Problems for ALL custom blocks:
 - Vanilla Tools will mine the same speed as your hand. Vanilla Tools do not reconize custom or even vanilla tags on custom items.
 - Blocks will have vanilla blocks such as fences/walls connect to them even if they defintiely should not. There is no way to stop this.
-- 
+
+Supporting Block Mechanic:
+- A lot of vanilla blocks such as torches need a supporting block or they will break, this is a mechanic that cannot be properley replicated. There is no air tag and most vanilla blocks aren't tagged, not allowing you to test if they arent there. if you were to bite the bullet and test to see if the tagged blocks were supporting your block, you need to have a ticking componet constantly checking for it. Bedrock Preforance it great but having a good amount ticking blocks will slow them all down causing issues. 
+
+- The placement filter can be very handy when it comes to supporting block behaviors because it does not even require a ticking compononet. The main issue is that it must be a type of block that is placed on tagged blocks such as dirt. Another issue is this is only the block below it, ruling out things like torches. 
 
 Carpet: 
 - Breaking when no support block cannot replicated unless a air tag was added. Would have to placement filter when/if that tag is added.
@@ -42,12 +46,12 @@ Trapdoors:
 - Placement on the side of the block is static, now allowing for choosing between the top and bottom of the block. Might be possible through gametest though.
 - One of the most do-able items on this list, requires a lot of attention to detai on how vanilla trapdoors are placed.
 Torches:
-- Supporting block mechanic cannot be replicated at the moment. If a air tag was added this would be easier but would require constant checking of the supporting block causing a potential preforance impact.
+- Supporting block mechanic cannot be replicated at the moment. If a air tag was added this would be easier but would require constant checking of the supporting block causing a potential preforance impact. (See Supporting Block Mechanic Note)
 - Vanilla placement cannot be replicated due to block geometry limit. Vanilla torches are slightly imbeded into the supporting block when they are placed on the side.
 - Lightning cannot be properley reproduce. Seems to cast a much more "shadow-ey" light then vanilla torches. Making them stand out.
 Flower Pot:
 - Cannot accept custom plants like vanilla flower pots.
-- Supporting block mechanic cannot be reproduced. See Torch notes for detailed explanation.
+- Supporting block mechanic cannot be reproduced. (See Supporting Block Mechanic Note)
 - If the amount of plants were to reach over 64 the state limit would be reached. Would have to do combinations (e.g 1-1, 1-2, 1-3...).
 - Would need several diffirient models for the plant types (Cross, cactus, sunflower) 
 Tnt:
@@ -61,7 +65,14 @@ Skulls:
 Item Frame: 
 - All items/blocks would need to be predefined. Items/blocks from an addon would not work.
 - Would need models for every item/block in the game predefined with the item frame model.
-- Supporting block mechanic can not be replicated. See Torch notes for explantion on potential solutions.
+- Supporting block mechanic can not be replicated. (See Supporting Block Mechanic Note)
 - Could not replicate comparator signals like vanilla item frames.
 Ores:
 - Would mine slow with vanilla pickaxes.
+Snow Layers:
+- No way to detect snow so layers would not pile on if it was snowing.
+- Supporting block behavior cannot be replicated properley. (See Supporting Block Mechanic Note)
+- Cannot "melt" around light sources like vanilla blocks.
+Dripleaf:
+- The dripleaf could only know if the player is on block the first time because "minecraft:on_step_on" only acitvates the event once. Once the player is on the block and the event was initally activated the dripleaf could not test for the player the two additional times to disable collision. If the player were to step off and back on then the dripleaf would have the required 3 player tests due to the event being acitvated once every time the player steps upon the block.
+- Using a placement filter.... Will finish later. Too Tired.
