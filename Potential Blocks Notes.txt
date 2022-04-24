@@ -1,1 +1,67 @@
+General Stuff:
+- All notes and comments are under the base of not using entities unless they are something like tnt. Some things like testing redstone signals can be done via entities but under under the pure mechanics of blocks and closley related things like functions/structures they cannot.
 
+- Gametest is applicable but I do not have any experience in it. I believe some mechanics can done or improved by the implemation of gametest into the fold.
+
+Problems for ALL custom blocks:
+- Vanilla Tools will mine the same speed as your hand. Vanilla Tools do not reconize custom or even vanilla tags on custom items.
+- Blocks will have vanilla blocks such as fences/walls connect to them even if they defintiely should not. There is no way to stop this.
+- 
+
+Carpet: 
+- Breaking when no support block cannot replicated unless a air tag was added. Would have to placement filter when/if that tag is added.
+General Crops:
+- Wheat Crop is already done
+- All crops except sugarcane go one pixel below the block limit causing a content log and turning them into a update block.
+- Sugar Cane has no way of detecting blocks above that don't have tags to stop growing. If there was a air tag you could simply make that a condition.
+Saplings:
+- Should be really simple to replicate. interact componononet that has a condition for bonemean, event to spawn the particles and to run a /structure command or /placefeature command.
+- Requires "/placefeature" command to have the same randomness as a natural generated tree. Using "/structure" generates a static structure that does not have variations unless you were to use a randomize event response to load in diffirient prefefined structure files of the trees of various growths.   "/placefeature" is excepted to return in a future preview/beta.
+- Would use placement_filter to only be allowed to place on grass/dirt materials. This would also work as the supporting block mechanic.
+Fences:
+- Could only connect to blocks that have proper tags and defined in a conditon.
+- Nothing stopping players/mobs from jumping or pathfinding over them. Would require a janky solution of using another block that is invisible to block entities from jumping over it. The invisible block would be a custom block set to a empty geometry file making it invisible. Would have to be the same block/entity collision as the fence and the rotation. The rotation would have to be set in the fill command and the "minecraft:direction property is required. 
+
+Would stop players from placing blocks above it. The fill command to set the invisible block would have to be set to only replace air in the case the player were to place the custom fence below a block. A placement filter would be used on the invisible block to make it only placeable on the custom fence, thereby making it dissapear if the custom fence were broken. The loot table would have to be set to a empty loot table to stop it from dropping the invisible block.
+
+- Uses the ticking compononet so can have a preformance impact if a lot are placed.
+- Cannot connect to vanilla fences since they do not have tags. 
+Gates:
+- See first section of fence notes for essentially the same thing. Slight alternation would be opening and closing the gate would have to destroy and place the invisible block. 
+- Overall completley do-able when it comes to the block itself.
+Banners:
+- Banner Recipes are not data driven
+- Break the block geometry limit
+- Swaying animation impossible unless you used ticking and part_visibility. Unless you had many "frames" it would be a slideshow. The more ticking blocks you have the slower the "animation" would be. 
+Flowers: 
+- Cannot be added to flower generation when player uses bonemeal on the ground.
+- Cannot be placed in flower pots.
+- Use a placement filter to only allow it on dirt like materials (e.g dirt, rooted dirt, mycelium, etc)
+Trapdoors:
+- Example Pack "https://mcpedl.com/custom-trapdoor-example-pack/"
+- Placement on the side of the block is static, now allowing for choosing between the top and bottom of the block. Might be possible through gametest though.
+- One of the most do-able items on this list, requires a lot of attention to detai on how vanilla trapdoors are placed.
+Torches:
+- Supporting block mechanic cannot be replicated at the moment. If a air tag was added this would be easier but would require constant checking of the supporting block causing a potential preforance impact.
+- Vanilla placement cannot be replicated due to block geometry limit. Vanilla torches are slightly imbeded into the supporting block when they are placed on the side.
+- Lightning cannot be properley reproduce. Seems to cast a much more "shadow-ey" light then vanilla torches. Making them stand out.
+Flower Pot:
+- Cannot accept custom plants like vanilla flower pots.
+- Supporting block mechanic cannot be reproduced. See Torch notes for detailed explanation.
+- If the amount of plants were to reach over 64 the state limit would be reached. Would have to do combinations (e.g 1-1, 1-2, 1-3...).
+- Would need several diffirient models for the plant types (Cross, cactus, sunflower) 
+Tnt:
+- Vanilla tnt animation is not data-driven. This would need to replicated.
+- Block would be simple to make: on_interact component with a condition for igniting devices such as flint and steel in the mainhand, a event that uses the set_block event response to place air, a run_command event resposne to summon the cusotm tnt entity that causes the explosion.
+- Could not be ignited be arrows that are on fire. 
+Iron Bars:
+- Could only connect to blocks that have proper tags and defined in a conditon.
+Skulls:
+- Would need to utilize a scoreboard based rotation sytem to have the eight rotations used for vanilla skulls.
+Item Frame: 
+- All items/blocks would need to be predefined. Items/blocks from an addon would not work.
+- Would need models for every item/block in the game predefined with the item frame model.
+- Supporting block mechanic can not be replicated. See Torch notes for explantion on potential solutions.
+- Could not replicate comparator signals like vanilla item frames.
+Ores:
+- Would not 
