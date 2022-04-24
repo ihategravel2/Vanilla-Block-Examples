@@ -64,4 +64,4 @@ Item Frame:
 - Supporting block mechanic can not be replicated. See Torch notes for explantion on potential solutions.
 - Could not replicate comparator signals like vanilla item frames.
 Ores:
-- Would not 
+- Would mine slow with vanilla pickaxes.
