@@ -9,7 +9,7 @@ Problems:
 3. Does not waterlog. // Fixed
 4. When placed on a non-solid block such as tall grass the lantern is placed above it.
 Potential Solutions:
-1. Potentially use global values if they work.
+1. Potentially use global values if they work. // DONT WORK ANYMORE
 2. N/A 
 
 TO-DO:
