@@ -328,7 +328,7 @@
 						]
 					},
 					{
-						"condition": "query.get_equipped_item_name('main_hand')=='water_bucket'",
+						"condition": "query.get_equipped_item_name('main_hand')=='water_bucket' && query.get_equipped_item_name('main_hand')=='REMOVE_WHEN_FIXED'",
 						"sequence": [
 							{
 								"condition": "query.block_property('ihg:state')==1",
@@ -377,7 +377,7 @@
 						]
 					},
 					{
-						"condition": "query.get_equipped_item_name('main_hand')=='bucket'",
+						"condition": "query.get_equipped_item_name('main_hand')=='bucket' && query.get_equipped_item_name('main_hand')=='REMOVED_WHEN_FIXED'",
 						"sequence": [
 							{
 								"condition": "query.block_property('ihg:state')==1",
