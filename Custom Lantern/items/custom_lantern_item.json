@@ -8,7 +8,7 @@
 			"minecraft:on_use_on": {
 				"on_use_on": {
 					"event": "place",
-					"condition": "query.block_face<2&&!q.block_neighbor_has_any_tag(0,-1,0,'custom_lantern')&&!q.block_neighbor_has_any_tag(0,1,0,'custom_lantern')"
+					"condition": "query.block_face<2&&!q.block_neighbor_has_any_tag(0,-1,0,'custom_lantern')&&!q.block_neighbor_has_any_tag(0,1,0,'custom_lantern')&&!q.block_neighbor_has_any_tag(0,0,0,'custom_lantern')"
 				}
 			},
 			"minecraft:icon": {
