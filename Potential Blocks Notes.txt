@@ -75,4 +75,4 @@ Snow Layers:
 - Cannot "melt" around light sources like vanilla blocks.
 Dripleaf:
 - The dripleaf could only know if the player is on block the first time because "minecraft:on_step_on" only acitvates the event once. Once the player is on the block and the event was initally activated the dripleaf could not test for the player the two additional times to disable collision. If the player were to step off and back on then the dripleaf would have the required 3 player tests due to the event being acitvated once every time the player steps upon the block.
-- Using a placement filter.... Will finish later. Too Tired.
+- Using a placement filter to allow the block to be set only on dirt like blocks will mimic the block supporting behavior.
