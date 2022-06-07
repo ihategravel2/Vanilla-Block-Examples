@@ -14,7 +14,7 @@ Potential Solutions:
 Not going to fix the particles. :)
 Use sequences to have the give command for buckets in a seperate run_command.
 TO-DO:
-Nothing
+Replace /give commands with /loot command.
 
 
 
